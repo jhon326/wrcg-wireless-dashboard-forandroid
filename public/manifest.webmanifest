@@ -1,0 +1,19 @@
+{
+  "name": "WRCG 无线仪表盘",
+  "short_name": "WRCG Dash",
+  "description": "WRCG 无线赛车仪表盘原型",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#07090b",
+  "theme_color": "#090b0d",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

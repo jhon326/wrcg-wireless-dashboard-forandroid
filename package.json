@@ -1,0 +1,22 @@
+{
+  "name": "wrcg-wireless-dashboard",
+  "version": "0.2.0",
+  "private": true,
+  "description": "WRCG wireless dashboard prototype: local UDP relay and browser/PWA gauge cluster.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:desktop": "node src/desktop-entry.js",
+    "build:desktop": "node tools/build-desktop.js",
+    "dev": "node src/server.js --open",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "postject": "1.0.0-alpha.6"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

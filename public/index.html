@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#050708">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>WRCG 无线仪表盘</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="dashboard">
+      <section class="rpm-screen" aria-label="六柱全屏转速显示">
+        <div class="rpm-band rpm-band-outer" aria-hidden="true"></div>
+        <div class="rpm-band rpm-band-mid" aria-hidden="true"></div>
+        <div class="rpm-band rpm-band-inner" aria-hidden="true"></div>
+        <div class="rpm-band rpm-band-inner" aria-hidden="true"></div>
+        <div class="rpm-band rpm-band-mid" aria-hidden="true"></div>
+        <div class="rpm-band rpm-band-outer" aria-hidden="true"></div>
+        <div class="rpm-center-split" aria-hidden="true"></div>
+        <div class="rpm-readout">
+          <span id="rpmValue" class="rpm-value">0</span>
+          <span class="rpm-unit">RPM</span>
+          <span id="maxRpmValue" class="rpm-max">/ 8000</span>
+        </div>
+      </section>
+
+      <section id="gearStage" class="gear-stage">
+        <div id="gearValue" class="gear-value">N</div>
+        <div class="speed-inline">
+          <span id="speedValue" class="speed-value">000</span>
+          <span class="speed-unit">KM/H</span>
+        </div>
+      </section>
+
+      <footer class="hud-footer">
+        <div class="brand-mini">
+          <span class="brand-slash"></span>
+          <span>PACENOTE</span>
+          <small>WRCG LINK</small>
+        </div>
+        <div class="hud-actions">
+          <button id="diagnosticsButton" class="icon-button" type="button" aria-label="打开连接诊断">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h10M18 7h2M4 17h2M10 17h10M7 4v6M17 14v6" />
+            </svg>
+          </button>
+          <button id="fullscreenButton" class="icon-button" type="button" aria-label="全屏">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" />
+            </svg>
+          </button>
+          <div id="connectionBadge" class="connection-badge is-connecting" role="status" aria-live="polite">
+            <span class="connection-dot"></span>
+            <span id="connectionText">连接中</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <div id="redlineFlash" class="redline-flash" aria-hidden="true"></div>
+
+    <div id="diagnosticsPanel" class="diagnostics-panel" hidden>
+      <button id="closeDiagnostics" class="diagnostics-close" type="button" aria-label="关闭诊断">×</button>
+      <div class="eyebrow">LINK DIAGNOSTICS</div>
+      <h2>连接诊断</h2>
+      <dl>
+        <div><dt>服务</dt><dd id="diagServer">连接中</dd></div>
+        <div><dt>数据源</dt><dd id="diagMode">DEMO</dd></div>
+        <div><dt>刷新率</dt><dd id="diagRate">30 Hz</dd></div>
+        <div><dt>网络往返</dt><dd id="diagLatency">-- ms</dd></div>
+        <div><dt>遥测帧年龄</dt><dd id="diagFrameAge">-- ms</dd></div>
+        <div><dt>页面渲染</dt><dd id="diagRender">-- ms</dd></div>
+        <div><dt>事件循环</dt><dd id="diagEventLoop">-- ms</dd></div>
+        <div><dt>接收帧率</dt><dd id="diagFps">-- Hz</dd></div>
+        <div><dt>发送积压</dt><dd id="diagQueue">-- bytes</dd></div>
+        <div><dt>WRCG UDP</dt><dd id="diagUdp">等待数据</dd></div>
+      </dl>
+      <button id="demoButton" class="wide-button" type="button">切换到模拟数据</button>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
