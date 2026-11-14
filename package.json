@@ -10,7 +10,7 @@
     "start:desktop": "node src/desktop-entry.js",
     "build:desktop": "node tools/build-desktop.js",
     "dev": "node src/server.js --open",
-    "test": "node --test"
+    "test": "node tools/run-tests.js"
   },
   "devDependencies": {
     "esbuild": "0.28.2",
