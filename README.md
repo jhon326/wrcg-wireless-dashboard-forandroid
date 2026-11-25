@@ -9,7 +9,7 @@ WRCG UDP :20777  ->  电脑 :8787 (WebSocket)  ->  Wi-Fi  ->  Android App
 ```
 
 > 本仓库是 [jhon326](https://github.com/jhon326) 的修改版（fork），在原有工程基础上重做了 Android 端界面，
-> 并提供了可直接安装的正式签名安装包。
+> 并提供了可直接安装的安装包。
 
 ## 截图
 
@@ -19,16 +19,16 @@ WRCG UDP :20777  ->  电脑 :8787 (WebSocket)  ->  Wi-Fi  ->  Android App
 
 ## 直接安装
 
-下载 [`release/WRCG-Dash-4.0.0-release.apk`](release/WRCG-Dash-4.0.0-release.apk) 安装到手机：
+下载 [Releases](https://github.com/jhon326/wrcg-wireless-dashboard-forandroid/releases/latest) 中的
+`WRCG-Dash-4.0.0-release.apk` 安装到手机：
 
 - 适用于 Android 8.0（API 26）及以上
-- 已用正式签名（见下方「签名信息」），可覆盖升级
 - 安装时如提示「未知来源」，允许当前文件管理器或浏览器安装即可
 
 也可以用 ADB：
 
 ```powershell
-adb install -r release/WRCG-Dash-4.0.0-release.apk
+adb install -r WRCG-Dash-4.0.0-release.apk
 ```
 
 ## 这个版本改了什么
@@ -79,29 +79,6 @@ cd android-app
 
 或直接双击 `android-app\build-apk.cmd`，产物会复制到 `..\dist\WRCG-Dash-4.0.0-release.apk`。
 
-### 签名配置
-
-正式签名参数从项目根目录的 `signing.properties` 读取（该文件与签名库均不入库）：
-
-```properties
-storeFile=signing/wrcg-release.jks
-storePassword=你的库口令
-keyAlias=wrcg
-keyPassword=你的密钥口令
-```
-
-没有该文件时，`assembleRelease` 只会产出未签名包；自行构建请换成你自己的签名库。
-
-## 签名信息
-
-| 项 | 值 |
-|---|---|
-| 证书主体 | `CN=PACENOTE WRCG, OU=Mobile, O=PACENOTE, L=Beijing, ST=Beijing, C=CN` |
-| 算法 | RSA 2048 / SHA256withRSA |
-| SHA-256 | `E6:97:C2:DF:D1:DB:7F:B7:1A:2E:F9:BB:0A:77:60:53:EF:87:1A:9F:C3:75:9E:C9:F1:04:FA:65:D6:76:26:8B` |
-
-> 私钥不在仓库中。后续版本必须使用同一签名库，否则无法覆盖升级。
-
 ## 目录结构
 
 ```text
@@ -114,7 +91,6 @@ keyPassword=你的密钥口令
 │  │  └─ GlassDrawable.java    毛玻璃背景
 │  ├─ build-apk.cmd        一键打包 release
 │  └─ install-apk.cmd      一键安装到设备
-├─ release/                已签名安装包
 ├─ docs/screenshots/       界面截图
 ├─ src/                    电脑端 Node 服务（HTTP / UDP / WebSocket）
 ├─ public/                 浏览器版仪表页面

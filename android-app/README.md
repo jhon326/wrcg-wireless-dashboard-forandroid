@@ -7,7 +7,7 @@
 ## 快速开始
 
 ```powershell
-# 打包（release，使用项目根目录 signing.properties 中的签名）
+# 打包（release）
 .\build-apk.cmd
 
 # 安装到已连接设备
