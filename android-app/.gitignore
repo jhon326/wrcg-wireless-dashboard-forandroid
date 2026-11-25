@@ -1,0 +1,10 @@
+# 签名库与口令，禁止提交
+signing.properties
+signing/
+*.jks
+*.keystore
+
+# 构建产物
+build/
+.gradle/
+local.properties

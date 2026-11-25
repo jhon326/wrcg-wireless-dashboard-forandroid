@@ -5,7 +5,7 @@ cd /d "%~dp0"
 if not defined ANDROID_HOME if defined LOCALAPPDATA set "ANDROID_HOME=%LOCALAPPDATA%\Android\Sdk"
 if not defined ANDROID_HOME set "ANDROID_HOME=%USERPROFILE%\AppData\Local\Android\Sdk"
 set "ADB=%ANDROID_HOME%\platform-tools\adb.exe"
-set "APK=%~dp0..\dist\WRCG-Dash-0.3.0-debug.apk"
+set "APK=%~dp0..\dist\WRCG-Dash-4.0.0-release.apk"
 
 if not exist "%ADB%" (
     echo ADB was not found.

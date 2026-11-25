@@ -24,3 +24,8 @@ android-app/app-v*.png
 .tmp-layout-*
 *.psd
 手机截图/
+
+signing.properties
+signing/
+android-app/signing.properties
+android-app/signing/
